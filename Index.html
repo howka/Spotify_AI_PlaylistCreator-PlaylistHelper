@@ -8,14 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <div class="chat-input">
-        <textarea
-            id="userInput"
-            placeholder="Message ChatGPT..."
-        ></textarea>
+    <main class="Chat">
+        <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+        <div class="chat-input">
+            <label class="visually-hidden" for="userInput">Message</label>
+            <textarea
+                id="userInput"
+                placeholder="Message ChatGPT..."
+            ></textarea>
 
-        <button id="sendButton">Send</button>
+            <button id="sendButton" type="button">Send</button>
+        </div>
+    </main>
+    <hr>
+    <div class="savedPlaylists">
+        
     </div>
 
     <script src="Js.js"></script>

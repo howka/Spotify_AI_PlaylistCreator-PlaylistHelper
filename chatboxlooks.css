@@ -1,14 +1,29 @@
 
+.Chat {
+    display: flex;
+    flex-direction: column;
+    width: min(600px, calc(100% - 24px));
+    height: min(70vh, 700px);
+    min-height: 300px;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: white;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
 .chat-input {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background: white;
-    max-width: 600px;
-    margin: 30px auto;
+    border-top: 1px solid #ccc;
 }
 
 .chat-input textarea {
@@ -18,7 +33,8 @@
     resize: none;
     font-size: 16px;
     padding: 10px;
-    height: 25px;
+    height: 44px;
+    margin: 0;
 }
 
 .chat-input button {
@@ -28,4 +44,16 @@
     border-radius: 20px;
     padding: 10px 18px;
     cursor: pointer;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
