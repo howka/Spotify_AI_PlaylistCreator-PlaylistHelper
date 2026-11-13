@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="chatboxlooks.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.classless.conditional.jade.css">
-    <title>Document</title>
+    <title>AI Playlist</title>
 </head>
 <body>
     <main class="Chat">
@@ -21,10 +21,80 @@
         </div>
     </main>
     <hr>
-    <div class="savedPlaylists">
-        
-    </div>
+    <section class="spotifySection">
+        <h2>Your Spotify Playlists</h2>
 
-    <script src="Js.js"></script>
+        <p id="spotifyStatus" role="status">Not connected to Spotify</p>
+        <button id="spotifyLogin" type="button">         Connect to Spotify </button>
+        <button id="spotifyLogout" type="button" hidden> Disconnect Spotify </button>
+
+        <div class="savedPlaylists" id="savedPlaylists">
+            <p>Connect your Spotify account to see your playlists.</p>
+        </div>
+
+        <!-- Playlist Template -->
+        <template id="playlistTemplate">
+            <article class="playlistCard">
+                <img class="playlistImage" src="" alt="Playlist cover">
+                <h3 class="playlistName"></h3>
+                <p class="playlistTracks"></p>
+                <button class="selectPlaylist" type="button">Select Playlist</button>
+            </article>
+        </template>
+
+            <!-- Selected Playlist Section -->
+        <section class="selectedPlaylistSection" id="selectedPlaylistSection" hidden>
+
+            <h2 id="selectedPlaylistName"></h2>
+            <p id="selectedPlaylistCount"></p>
+
+            <!-- Playlist Sorting -->
+            <section class="sortingSection">
+                <h3>Organize Your Playlist</h3>
+
+                <label for="sortMethod">Sort by:</label>
+
+                <select id="sortMethod">
+                    <option value="name">Song Name (A–Z)</option>
+                    <option value="artist">Artist (A–Z)</option>
+                    <option value="duration">Duration (Shortest First)</option>
+                    <option value="release_date">Release Date (Oldest First)</option>
+                </select>
+
+                <button id="previewSort" type="button">
+                    Preview Sorting
+                </button>
+
+                <h3>Sorting Preview</h3>
+                <div id="sortingPreview"></div>
+            </section>
+
+            <!-- Playlist Songs -->
+            <h3>Playlist Songs</h3>
+            <div class="playlistSongs" id="playlistSongs"></div>
+        </section>
+
+        <!-- Song Template -->
+        <template id="songTemplate">
+            <article class="songCard">
+                <img class="songImage" alt="Album cover">
+                <div class="songInformation">
+                    <h3 class="songName"></h3>
+                    <p class="songArtist"></p>
+                </div>
+                <a class="songLink" target="_blank" rel="noopener noreferrer">
+                    Open in Spotify
+                </a>
+
+            </article>
+
+        </template>
+
+    </section>
+
+
+    <script src="scripts/sendMessage.js"></script>
+    <script type="module" src="scripts/spotifyAuth.js"></script>
+    <script type="module" src="scripts/sorting.js"></script>
 </body>
 </html>

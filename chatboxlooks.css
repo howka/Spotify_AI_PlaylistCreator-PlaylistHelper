@@ -57,3 +57,250 @@
     white-space: nowrap;
     border: 0;
 }
+.message {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    max-width: 85%;
+    overflow-wrap: anywhere;
+}
+
+.message.user {
+    background: #10a37f;
+    color: white;
+    margin-left: auto;
+}
+
+.message.assistant {
+    background: #f1f1f1;
+    color: black;
+    margin-right: auto;
+}
+
+.spotifySection {
+    width: min(900px, calc(100% - 24px));
+    margin: 30px auto;
+}
+
+.savedPlaylists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.playlistCard {
+    background: #181818;
+    padding: 16px;
+    border-radius: 12px;
+    color: white;
+    transition: 0.2s;
+}
+
+.playlistCard:hover {
+    background: #282828;
+    transform: translateY(-3px);
+}
+
+.playlistImage {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.playlistName {
+    font-size: 18px;
+    margin-top: 12px;
+    color: white;
+}
+
+.playlistTracks {
+    color: #b3b3b3;
+}
+
+.selectPlaylist {
+    background: #1db954;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+/* Playlists */
+
+.playlistCard {
+    background: #181818;
+    padding: 16px;
+    border-radius: 12px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.playlistImage {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.playlistName {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.playlistTracks {
+    color: #b3b3b3;
+}
+
+.selectPlaylist {
+    background: #1db954;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.playlistCard a {
+    color: #1db954;
+    text-align: center;
+}
+/* =====================================
+   SELECTED PLAYLIST
+===================================== */
+
+.selectedPlaylistSection {
+    margin-top: 40px;
+}
+
+.selectedPlaylistSection[hidden] {
+    display: none;
+}
+
+.playlistCard.selected {
+    outline: 3px solid #1db954;
+    background: #282828;
+}
+
+
+/* =====================================
+   SONG LIST
+===================================== */
+
+.playlistSongs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.songCard {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px;
+
+    background: #181818;
+    border-radius: 10px;
+
+    color: white;
+}
+
+.songImage {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.songInformation {
+    flex: 1;
+    min-width: 0;
+}
+
+.songName {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+}
+
+.songArtist {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 5px 0 0;
+}
+
+.songLink {
+    color: #1db954;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.songLink:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .songCard {
+        flex-wrap: wrap;
+    }
+}
+/* Playlist Sorting */
+
+.sortingSection {
+    margin-top: 30px;
+    padding: 20px;
+    background: #181818;
+    border-radius: 12px;
+}
+
+.sortingSection h3,
+.sortingSection label {
+    color: white;
+}
+
+#sortMethod {
+    margin-top: 10px;
+}
+
+#previewSort {
+    background: #1db954;
+    color: black;
+    border: none;
+    border-radius: 20px;
+}
+
+#sortingPreview {
+    margin-top: 20px;
+}
+
+.previewSong {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #282828;
+    border-radius: 8px;
+    color: white;
+}
+.sortingComparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.sortingComparison h4 {
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .sortingComparison {
+        grid-template-columns: 1fr;
+    }
+}
