@@ -42,3 +42,36 @@ export async function sortPlaylist(songs, method) {
 
     return await response.json();
 }
+// =====================================
+// SEND CHAT MESSAGE TO PYTHON
+// =====================================
+
+export async function sendChatMessage(message) {
+
+    const response = await fetch(
+        `${BACKEND_URL}/api/chat`,
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: message
+            })
+        }
+    );
+
+    if (!response.ok) {
+        const error = await response.json().catch(() => ({}));
+
+        throw new Error(
+            typeof error.detail === "string"
+                ? error.detail
+                : `Chat request failed: ${response.status}`
+        );
+    }
+
+    return await response.json();
+}

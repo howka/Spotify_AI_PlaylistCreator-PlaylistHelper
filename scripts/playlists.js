@@ -11,7 +11,6 @@ export async function loadPlaylists() {
 
     try {
         const token = await getAccessToken();
-
         if (!token) {
             throw new Error("Please connect your Spotify account.");
         }
@@ -22,11 +21,8 @@ export async function loadPlaylists() {
 
         while (url) {
             const response = await spotifyRequest(url, token);
-
             const data = await response.json();
-
             playlists.push(...data.items.filter(Boolean));
-
             url = data.next;
         }
 
@@ -222,7 +218,6 @@ export function clearPlaylists() {
     selectedPlaylistName.textContent = "";
     selectedPlaylistCount.textContent = "";
     selectedPlaylistSection.hidden = true;
-
 }
 // =====================================
 // SELECTED PLAYLIST ELEMENTS

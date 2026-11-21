@@ -41,13 +41,15 @@ window.addEventListener("playlistDisconnected", () => {
 });
 
 previewButton.addEventListener("click", async () => {
-    previewButton.disabled = true;
-    sortingPreview.textContent = "Sorting songs...";
-
-    if (!currentPlaylist) {
-        sortingPreview.textContent = "Please select a playlist first.";
-        return;
-    }
+    previewButton.addEventListener("click", async () => {
+        if (!currentPlaylist) {
+            sortingPreview.textContent = "Please select a playlist first.";
+            return;
+        }
+        previewButton.disabled = true;
+        sortingPreview.textContent = "Sorting songs...";
+        // Keep the rest of your existing code here.
+    });
 
     try {
         const result = await sortPlaylist(

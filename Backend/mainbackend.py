@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Literal
 from playlistSorter import PlaylistSorter
 from pydantic import BaseModel
-
+#COMMAND AND HAS TO BE IN THE BACKEND: python -m uvicorn mainbackend:app --reload --host 127.0.0.1 --port 8000
 # Create the FastAPI application
 app = FastAPI()
 
@@ -65,4 +65,36 @@ def sort_playlist(request: SortRequest):
         "status": "success",
         "method": request.method,
         "songs": sorted_songs
+    }
+# =====================================
+# CHAT REQUEST MODEL
+# =====================================
+
+class ChatRequest(BaseModel):
+    message: str
+
+
+# =====================================
+# CHAT ENDPOINT
+# =====================================
+
+@app.post("/api/chat")
+def chat(request: ChatRequest):
+
+    message = request.message.lower()
+
+    if "workout" in message or "gym" in message:
+        reply = "You want an energetic workout playlist!"
+
+    elif "chill" in message or "relax" in message:
+        reply = "You want a relaxing playlist!"
+
+    elif "study" in message:
+        reply = "You want music suitable for studying!"
+
+    else:
+        reply = "Tell me what kind of playlist you want!"
+
+    return {
+        "reply": reply
     }
